@@ -1,0 +1,76 @@
+.toDoItemWrapper {
+    margin-bottom: 10px;
+    overflow: hidden;
+    transform: translateX(-101%);
+    transition: transform 0.3s ease-out;
+  
+    &.loaded {
+      transform: translateX(0%);
+    }
+}
+
+.toDoItem {
+  border-radius: 10vw;
+  border: 1px solid var(--offWhite);
+  width: 60vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  transform: translateX(101%);
+  transition: transform 0.3s ease-out;
+
+  &.loaded {
+    transform: translateX(0%);
+  }
+
+  button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    svg {
+      height: 30px;
+      fill: var(--offWhite);
+      transition: fill 0.3s ease-out;
+      width: 30px;
+    }
+
+    &:hover {
+      svg {
+        fill: lightgrey;
+      }
+    }
+  }
+
+  p {
+    position: relative;
+
+    &:before {
+      background-color: var(--offWhite);
+      content: "";
+      border-radius: 30px;
+      height: 5px;
+      left: -10px;
+      right: -10px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) translateY(5px) scaleX(0);
+      transform-origin: right center;
+      transition: transform 0.3s ease-out;
+    }
+  }
+
+  .textCrossed {
+    &:before {
+      transform: translateY(-50%) translateY(5px) scaleX(1);
+      transform-origin: left center;
+      transition: transform 0.3s ease-out;
+    }
+  }
+}
+
+.checkbox {
+  height: 30px;
+  width: 30px;
+}
